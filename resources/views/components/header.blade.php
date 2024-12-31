@@ -29,7 +29,7 @@
                 Dashboard
             </x-nav-link>
 
-            <x-button-link href="/jobs/create" icon="edit">
+            <x-button-link url="/jobs/create" icon="edit">
                 Create Job 
             </x-button-link>
         </nav>
