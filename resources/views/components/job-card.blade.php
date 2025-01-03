@@ -18,7 +18,7 @@
         {{ Str::limit($job->description, 100) }}
     </p>
     <ul class="my-4 bg-gray-100 p-4 rounded">
-        <li class="mb-2"><strong>Salary:</strong> $ {{ number_format($job->salary) }}</li>
+        <li class="mb-2"><strong>Salary:</strong> ${{ number_format($job->salary) }}</li>
         <li class="mb-2">
             <strong>Location:</strong> {{ $job->city }}, {{ $job->state }}
             @if($job->remote)
