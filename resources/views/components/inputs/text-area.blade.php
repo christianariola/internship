@@ -1,16 +1,18 @@
-@props(['id', 'name', 'label' => null, 'type' => 'text', 'placeholder' => '', 'value' => ''])
+@props(['id', 'name', 'label' => null, 'placeholder' => '', 'value' => '', 'cols' => '', 'rows' => ''])
 <div class="mb-4">
     @if($label)
-        <label class="block text-gray-700" for="{{ $id }}">{{ $label }}</label>
+        <label class="block text-gray-700" for="description">
+            {{ $label }}
+        </label>
     @endif
-    <input
+    <textarea
+        cols="{{ $cols }}"
+        rows="{{ $rows }}"
         id="{{ $id }}"
-        type="{{ $type }}"
         name="{{ $name }}"
         class="w-full px-4 py-2 border rounded focus:outline-none @error($name) border-red-500 @enderror"
         placeholder="{{ $placeholder }}"
-        value="{{ old($name, $value) }}"
-    />
+    >{{ old($name, $value) }}</textarea>
     @error($name)
         <p class="text-red-500 text-sm mt-1">{{ $message }}</p>
     @enderror
