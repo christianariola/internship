@@ -11,9 +11,8 @@ use Illuminate\Support\Facades\Storage;
 
 class JobController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    // @desc   Show all job listings
+    // @route  GET /jobs
     public function index(): View
     {
         $jobs = Job::all();
@@ -21,17 +20,15 @@ class JobController extends Controller
         return view('jobs.index')->with('jobs', $jobs);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    // @desc   Show create job forn
+    // @route  GET /jobs/create
     public function create(): View
     {
         return view('jobs.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    // @desc   Save job to database
+    // @route  POST /jobs
     public function store(Request $request): RedirectResponse
     {
         $validateData = $request->validate([
@@ -72,26 +69,23 @@ class JobController extends Controller
         return redirect()->route('jobs.index')->with('success', 'Job listing created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
+    // @desc   Display a single job listing
+    // @route  GET /jobs/{$id}
     // Job $job is a Route Model Binding
     public function show(Job $job): View
     {
         return view('jobs.show')->with('job', $job);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+    // @desc   Show edit job form
+    // @route  GET /jobs/{$id}/edit
     public function edit(Job $job): View
     {
         return view('jobs.edit')->with('job', $job);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+    // @desc   Show all job listings
+    // @route  PUT /jobs/{$id}/
     public function update(Request $request, Job $job): RedirectResponse
     {
         $validateData = $request->validate([
@@ -132,9 +126,8 @@ class JobController extends Controller
         return redirect()->route('jobs.index')->with('success', 'Job listing updated successfully.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+    // @desc   Delete a job listing
+    // @route  DELETE /jobs/{$id}
     public function destroy(Job $job): RedirectResponse
     {
         // If logo exists, delete it

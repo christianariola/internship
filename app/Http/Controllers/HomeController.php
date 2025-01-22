@@ -8,6 +8,8 @@ use App\Models\Job;
 
 class HomeController extends Controller
 {
+    // @desc   Show home inxex page
+    // @route  GET /
     public function index() : View
     {
         $jobs = Job::latest()->limit(6)->get();
