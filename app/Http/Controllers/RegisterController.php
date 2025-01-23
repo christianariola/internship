@@ -20,7 +20,7 @@ class RegisterController extends Controller
 
     // @desc   Store user to database
     // @route  POST /register
-    public function store(): RedirectResponse
+    public function store(Request $request): RedirectResponse
     {
         $validatedData = request()->validate([
             'name' => 'required|string|max:100',
