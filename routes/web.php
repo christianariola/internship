@@ -12,6 +12,8 @@ use App\Http\Controllers\ApplicantController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
+Route::get('/jobs/search', [JobController::class, 'search'])->name('jobs.search');
+
 // Route::get('/jobs', [JobController::class, 'index']);
 // Route::get('/jobs/create', [JobController::class, 'create']);
 // Route::get('/jobs/{id}', [JobController::class, 'show']);
